@@ -1,4 +1,4 @@
-#HookGroups Class
+# HookGroups Class
 
 ## Table of Contents
 - [Set Up](#set-up)
@@ -10,7 +10,7 @@
 	- [.hookGroup()](#hookgroup)
 - [Running Hooks](#running-hooks)
 	- [.runHooks()](#runhooks)
-- [Getting Hooks](#gettinghooks)
+- [Getting Hooks](#getting-hooks)
 	- [.getHook()](#gethook)
 	- [.getHookGroup()](#gethookgroup)
 	- [.getHooks()](#gethooks)
@@ -35,7 +35,8 @@ Here is an example of a basic set up to creating a hook-able object which runs e
 
 [Back to Table of Contents](#table-of-contents)
 
-###App.js
+### App.js
+
 ```javascript
 const express = require('express');
 const HookGroups = require('./HookGroups');
@@ -72,7 +73,7 @@ App.init = () => {
 module.exports = App;
 ```
 
-###hooks.js
+### hooks.js
 
 ```javascript
 const App = require('./App');
@@ -101,7 +102,7 @@ exports.hooks = () => {
 };
 ```
 
-###index.js
+### index.js
 
 ```javascript
 const App = require('./App');
@@ -133,7 +134,7 @@ When a hook group is run, it executes all of the functions inside that hook grou
 ## Creating Hooks
 There are two ways to create hooks and hook groups.
 
-###.hook()
+### .hook()
 **.hook(hook-group-name (String), hook-description (String), function (Anonymous Function that returns a Promise), [key (Integer)[, replace-current-key (Boolean)[, run-hook-group-synchronously (Boolean)]]])**
 
 - *hook-group-name* - (String) - Required - This is the hook group you would like to place the hook in, if there currently is no hook group with this name, it will be created.
@@ -156,7 +157,7 @@ The above example adds a hook to the key 1 in a newly made 'testHookGroup' hook 
 
 [Back to Table of Contents](#table-of-contents)
 
-###.hookGroup()
+### .hookGroup()
 **.hook(hook-group-name (String), hook-group-array (Array)[, run-synchronously (Boolean)])**
 
 - *hook-group-name* - (String) - Required - This is the hook group you would like to place your array of hooks into, if there currently is no hook group with this name, it will be created.
@@ -191,12 +192,12 @@ The above example will either create or replace the hook group 'testHookGroup', 
 
 [Back to Table of Contents](#table-of-contents)
 
-##Running hooks
+## Running hooks
 Running hooks is quite simple you just find the place in your code that you want to run your hooks and use the proper method. You will more than likely want to run a hook group, with the *.runHooks()* method within another custom made method of your HookGroups instance. Additionally, your hook groups are run and chained with .then() methods as they are built around Promises.
 
 Note that *.runHooks()* will still run fine even if calling to run a hook group that doesn't yet exist, this is so that a placeholder option for hooks can be placed throughout the code that other developers may hook into without altering the core code.
 
-###.runHooks()
+### .runHooks()
 **.runHooks(hook-group (String))**
 
 - *hook-group*  - (String) - Required - The hook group that you want to run.
@@ -205,10 +206,10 @@ You can find a great example in the set up section [here](#appjs)
 
 [Back to Table of Contents](#table-of-contents)
 
-##Getting Hooks
+## Getting Hooks
 The methods to get hooks can be use full for returning all of the hook groups, a single hook group, or a single hook within a hook group. They can also be returned as a beautified JSON string, or as an object.
 
-###getHook()
+### getHook()
 **getHook(hook-group-name (String), key (Integer), [returnJSONString (boolean), [stringifyFunction (boolean)]])**
 
 **returns: Object || JSON String**
@@ -236,7 +237,7 @@ This is what would be logged to the console:
 ```
 [Back to Table of Contents](#table-of-contents)
 
-###getHookGroup()
+### getHookGroup()
 **getHookGroup(hook-group-name (String), [returnJSONString (boolean), [stringifyFunction (boolean)]])**
 
 **returns: Object || JSON String**
@@ -290,7 +291,7 @@ This is what would be logged to the console:
 ```
 [Back to Table of Contents](#table-of-contents)
 
-###getHooks()
+### getHooks()
 **getHooks([returnJSONString (boolean), [stringifyFunction (boolean)]])**
 
 **returns: Object || JSON String**
@@ -356,10 +357,10 @@ This is what would be logged to the console:
 ```
 [Back to Table of Contents](#table-of-contents)
 
-##Removing Hooks
+## Removing Hooks
 The following methods will remove hooks. Many times there may be hooks made throughout multiple files and/or the object may use the hook groups multiple times and the option to remove hooks along the way may be required for the focus of your app.
 
-###.unhook()
+### .unhook()
 **unhook(group-name (String), key (Integer))**
 
 - *group-name* - (String) - Required - the name of the hook group of the hook that you would like to remove.
@@ -367,24 +368,24 @@ The following methods will remove hooks. Many times there may be hooks made thro
 
 [Back to Table of Contents](#table-of-contents)
 
-###.unhookGroup()
+### .unhookGroup()
 **unhookAll(group-name (String))**
 
 - *group-name* - (String) - Required - the name of the hook group that you would like to clear. Note that this will not *actually* remove the hook group, but rather it will make the hook group empty.
 
 [Back to Table of Contents](#table-of-contents)
 
-###.unhookAll()
+### .unhookAll()
 **unhookAll()**
 
 This method has no parameters and will completely clear out all hooks and hook groups to a clean slate. Note that the hook groups will no longer exist, although, a runHooks() will still run fine and should not break the app, even if calling upon a hook group that does not exist.
 
 [Back to Table of Contents](#table-of-contents)
 
-##Cloning Hooks
+## Cloning Hooks
 Sometimes the hooks and hook groups may be needed in various instances, but you won't have to create them all over again. You can clone hooks and hook groups into a new hook group or an existing one.
 
-###.cloneHook()
+### .cloneHook()
 **cloneHook(fromGroup (String), fromKey (Integer), toGroup (String), toKey (Integer), replace(Boolean))**
 
 - *fromGroup* - String - Required - the hook group of the hook you want to clone
@@ -395,7 +396,7 @@ Sometimes the hooks and hook groups may be needed in various instances, but you 
 
 [Back to Table of Contents](#table-of-contents)
 
-###.cloneHookGroup()
+### .cloneHookGroup()
 **cloneHookGroup(fromGroup (String), toGroup (String), replace(Boolean))**
 
 - *fromGroup* - String - Required - the hook group you want to clone
@@ -404,10 +405,10 @@ Sometimes the hooks and hook groups may be needed in various instances, but you 
 
 [Back to Table of Contents](#table-of-contents)
 
-##Altering Hooks
+## Altering Hooks
 Much like in the case of needed to remove hooks and hook groups, many times you may need to rearrange them i various situations, or change whether they run synchronously/asynchronously, or you may want to clean up hook groups with empty keys.
 
-###moveHook()
+### moveHook()
 Allows you to move a hook from one place to another. If you are planning on switching the 'location' of two different hooks it is recommended to use .swapHooks() instead.
 
 Note: using this method will clean up the applicable hook group(s), i.e. will remove empty keys, after the moving has occurred.
@@ -422,7 +423,7 @@ Note: using this method will clean up the applicable hook group(s), i.e. will re
 
 [Back to Table of Contents](#table-of-contents)
 
-###.swapHooks()
+### .swapHooks()
 Allows you to switch the position of 2 hooks either within the same hook group or between two hook groups.
 
 Note: using this method will clean up the applicable hook group(s), i.e. will remove empty keys, after the swapping has occurred.
@@ -436,7 +437,7 @@ Note: using this method will clean up the applicable hook group(s), i.e. will re
 
 [Back to Table of Contents](#table-of-contents)
 
-###.hookGroupSync()
+### .hookGroupSync()
 This method simply allows you to change whether a hook group runs all of its hooks synchronously or asynchronously.
 
 **hookGroupSync(groupName (String)[, runSync (Boolean)])**
@@ -446,7 +447,7 @@ This method simply allows you to change whether a hook group runs all of its hoo
 
 [Back to Table of Contents](#table-of-contents)
 
-###.cleanHookGroup()
+### .cleanHookGroup()
 Removes empty keys from a hook group. Note: this may change some of the current hooks' keys.
 
 **cleanHookGroup(groupName (String))**
@@ -455,7 +456,7 @@ Removes empty keys from a hook group. Note: this may change some of the current 
 
 [Back to Table of Contents](#table-of-contents)
 
-###.cleanHooks()
+### .cleanHooks()
 Removes all empty keys from all hook groups or a specified array of hook groups.
 
 **cleanHooks(hookGroups (String | Array of Strings))**
