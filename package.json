@@ -1,0 +1,24 @@
+{
+  "name": "hooks",
+  "version": "0.1.0",
+  "description": "create hookable objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Secular12/hooks.git"
+  },
+  "keywords": [
+    "hooks",
+    "hook",
+    "hookable"
+  ],
+  "author": "Mark Dekin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Secular12/hooks/issues"
+  },
+  "homepage": "https://github.com/Secular12/hooks#readme"
+}
