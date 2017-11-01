@@ -1,5 +1,5 @@
 {
-  "name": "hooks",
+  "name": "hook-groups",
   "version": "0.1.0",
   "description": "create hookable objects",
   "main": "index.js",

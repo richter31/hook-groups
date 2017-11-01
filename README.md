@@ -40,7 +40,7 @@ Here is an example of a basic set up to creating a hook-able object which runs e
 ```javascript
 const express = require('express');
 const HookGroups = require('./HookGroups');
-const App = new Hooks();
+const App = new HookGroups();
 
 App.exp = express();
 
@@ -117,7 +117,7 @@ App.init();
 Make a new instance of a the HookGroups Class.
 
   ```javascript
-  const TestHooks = new Hooks();
+  const TestHooks = new HookGroups();
   ```
 
 [Back to Table of Contents](#table-of-contents)
@@ -145,7 +145,7 @@ There are two ways to create hooks and hook groups.
 - *run-hook-group-synchronously* - (Boolean || 'noset' (String)) - Optional - Default: 'noset' (String) - If 'noset' or True, and hook group does not already exist, the hook group will be set to run synchronously. If set to false, it will be set to run asynchronously (if there are asynchronous functions in the hook group). However, if hook group is already set, then 'noset' will keep it as is and True, will ensure the whole hook group is set to run synchronously.
 
 ```javascript
-const TestHooks = new Hooks();
+const TestHooks = new HookGroups();
 TestHooks.hook('testHookGroup', 'logs message', () => {
   return new Promise((res, rej) => {
     console.log('Hello World');
@@ -165,7 +165,7 @@ The above example adds a hook to the key 1 in a newly made 'testHookGroup' hook 
 - *run-synchronously* - (Boolean || 'noset' (String)) - Optional - Default: 'noset' (String) - If 'noset' or True, and hook group does not already exist, the hook group will be set to run synchronously. If set to false, it will be set to run asynchronously (if there are asynchronous functions in the hook group). However, if hook group is already set, then 'noset' will keep it as is and True, will ensure the whole hook group is set to run synchronously.
 
 ```javascript
-const TestHooks = new Hooks();
+const TestHooks = new HookGroups();
 TestHooks.data.x = 5;
 TestHooks.hookGroup('testHookGroup', [
   {
@@ -220,7 +220,7 @@ The methods to get hooks can be use full for returning all of the hook groups, a
 - *stringifyFunction* - (Boolean) - optional - Default: false - Requires: returnJSONString = true - By default, if returning a JSON string, the functions in the hook will be converted to the string: '[Function]'. However, if set to true, the function will be stringified and displayed as well.
 
 ```javascript
-const TestHooks = new Hooks();
+const TestHooks = new HookGroups();
 TestHooks.hook('testGroup', 'log hello world', () => {
   return new Promise((res, rej) => {
     console.log('Hello World!');
@@ -247,7 +247,7 @@ This is what would be logged to the console:
 - *stringifyFunction* - (Boolean) - optional - Default: false - Requires: returnJSONString = true - By default, if returning a JSON string, the functions in the hooks will be converted to the string: '[Function]'. However, if set to true, the function will be stringified and displayed as well.
 
 ```javascript
-const TestHooks = new Hooks();
+const TestHooks = new HookGroups();
 TestHooks.hookGroup('pre', [
   {
     description: 'logs message',
@@ -300,7 +300,7 @@ This is what would be logged to the console:
 - *stringifyFunction* - (Boolean) - optional - Default: false - Requires: returnJSONString = true - By default, if returning a JSON string, the functions in the hooks will be converted to the string: '[Function]'. However, if set to true, the function will be stringified and displayed as well.
 
 ```javascript
-const TestHooks = new Hooks();
+const TestHooks = new HookGroups();
 TestHooks.hookGroup('pre', [
   {
     description: 'logs message',

@@ -1,4 +1,4 @@
-class Hooks {
+class HookGroups {
 
   constructor() {
     this.groups = {};
@@ -256,4 +256,4 @@ class Hooks {
   }
 }
 
-module.exports = Hooks;
+module.exports = HookGroups;
