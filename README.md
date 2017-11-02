@@ -39,7 +39,7 @@ Here is an example of a basic set up to creating a hook-able object which runs e
 
 ```javascript
 const express = require('express');
-const HookGroups = require('./HookGroups');
+const HookGroups = require('hook-groups');
 const App = new HookGroups();
 
 App.exp = express();
