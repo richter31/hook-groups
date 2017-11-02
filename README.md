@@ -1,5 +1,7 @@
 # HookGroups Class
 
+HookGroups is a javascript "class" that gives each of its instances the basic functionality to include groups of hooks to be run at various points of its execution(s). It also allows you to rearrange, remove, clone, and even return the hooks for ease of use (as an object or beautified/stringified). The HookGroups class is particularly useful for creating a core application so that others using the core application can hook in and make alterations without needing to edit the core files themselves.
+
 ## Table of Contents
 - [Set Up](#set-up)
 	- [Set Up Example](#appjs)
@@ -31,9 +33,11 @@
 ## Set Up
 General set up would include file(s) dedicated to editing hooks, a file to create a hook-able object that defines the method(s) which use/include the hooks, and finally the file(s) of the app, which call in and use the hooked object.
 
-Here is an example of a basic set up to creating a hook-able object which runs express, and allows developers to hook before and after the initializing of express and even change the port from a separate file.
-
 [Back to Table of Contents](#table-of-contents)
+
+**Example:**
+Here is an example of a basic set up to creating a hook-able object which runs express, and allows developers to hook before and after the initializing of express and even change the port from a separate file. You could expand and have the same app have methods which run the different requests, or you could make separate instances.
+*Note: Normally you wouldn't use hooks to change the port, but would instead have something like a config file, this is just an example of its use.*
 
 ### App.js
 
